@@ -2,7 +2,7 @@ package model;
 
 public class System{
 	
-	private Wetland[] wetlands;
+	private Wetland [] wetlands;
 	
 	//Constructor
 	
