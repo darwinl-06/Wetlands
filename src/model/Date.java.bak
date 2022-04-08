@@ -1,0 +1,25 @@
+package model;
+
+public class Date{
+	
+	private String date;
+	
+	//Constructor
+	
+	public Date(String date){
+		
+		this.date = date;
+	}
+	
+	//Gets
+	
+	public String getDate(){
+		return date;
+	}
+	
+	//Sets
+	
+	public void setDate(String pDate){
+		date = pDate;
+	}
+}

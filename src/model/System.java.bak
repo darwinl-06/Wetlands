@@ -1,0 +1,11 @@
+package model;
+
+public class System{
+	
+	private Wetland[] wetlands;
+	
+	public System(Wetland [] wetlands){
+		
+		wetlands = new Wetland[80];
+	}
+}
