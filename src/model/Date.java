@@ -42,4 +42,13 @@ public class Date{
 	public void setYear(int pYear){
 		year = pYear;
 	}
+
+	
+	public String toString() {
+		return "day=" + day + 
+		"\n, month=" + month + 
+		"\n, year=" + year;
+	}
+
+	
 }

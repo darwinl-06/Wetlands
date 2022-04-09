@@ -43,4 +43,13 @@ public class Management{
 		conservation = pConservation;
 	}
 
+	@Override
+	public String toString() {
+		return "- Conservation=" + conservation + 
+		"\n- Maintance=" + maintance + 
+		"\n- Restauration=" + restauration;
+	}
+
+	
+
 }

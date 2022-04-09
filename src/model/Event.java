@@ -3,16 +3,17 @@ package model;
 public class Event{
 	
 	private String eventManager;
-	private int value;
+	private double value;
 	private String description;
+	private EventType type;
 	
 	//Relations
 	
-	private Date dateEvent;
+	private String dateEvent;
 	
 	//Constructor
 	
-	public Event(String eventManager, int value, String description, Date dateEvent){
+	public Event(EventType type, String dateEvent, String eventManager, double value, String description){
 		
 		this.eventManager = eventManager;
 		this.value = value;
@@ -28,7 +29,11 @@ public class Event{
 		return eventManager;
 	}
 	
-	public int getValue(){
+	public EventType getType() {
+		return type;
+	}
+
+	public double getValue(){
 		return value;
 	}
 	
@@ -36,7 +41,7 @@ public class Event{
 		return description;
 	}
 	
-	public Date getDateEvent(){
+	public String getDateEvent(){
 		return dateEvent;
 	}
 	
@@ -45,7 +50,11 @@ public class Event{
 	public void setEventManager(String pEventManager){
 		eventManager = pEventManager;
 	}
-	
+
+	public void setType(EventType type) {
+		this.type = type;
+	}
+
 	public void setValue(int pValue){
 		value = pValue;
 	}
@@ -54,7 +63,19 @@ public class Event{
 		description = pDescription;
 	}
 	
-	public void setDateEvent(Date pDateEvent){
+	public void setDateEvent(String pDateEvent){
 		dateEvent = pDateEvent;
 	}
+
+	public String toString() {
+		return "\n" +
+		"------ Datos de evento -------" +
+		"\n- Fecha del evento" + dateEvent + 
+		"\n- Descicion: " + description + 
+		"\n- Tipo de evento: " + type + 
+		"\n- Realizador: " + eventManager+ 
+		"\n- Precio: " + value;
+	}
+
+	
 }

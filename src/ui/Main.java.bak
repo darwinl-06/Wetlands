@@ -1,17 +1,78 @@
 package ui;
+
 import java.util.Scanner;
 import model.System;
-import model.Wetland;
-import model.Specie;
-import model.Event;
-import model.Date;
 
-public class Main{
-	public static void main(String[] args){
-		
-		Scanner lector = new Scanner(System.in);
 
+public class Main {
+
+	private System sys;
+	private Scanner sc;
+
+
+	public Main() {
+		sc= new Scanner(System.in);
+	}
+
+	public static void main (String [] args) {
 		
+		Main ppal = new Main();
+
+		int option = 0;
+		
+		
+		do {
+		    option =ppal.showMenu();
+		    ppal.answerOption(option);
+		}while (option !=0);
+	
+	}
+
+	public void answerOption(int userOption) {
+		switch(userOption) {
+		case 0: 
+			System.out.println("Cerrando el programa");
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3: 
+			break;
+		case 4: 
+			break;
+		case 5: 
+			break;
+		
+		
+		}
+		
+		
+	}
+
+	public int showMenu() {
+		int input;
+		System.out.println("\n\nMenu de la Tienda, digite una opciOn\n"+ 
+		                    "(1) Crear un humedal\n" +
+		                    "(2) Registrar una nueva especie en el humedal\n" +
+		                    "(3) Registrar en evento en el humedal\n"+
+		                    "(4) Informacion sobre la cantidad de mantenimientos\n"+
+		                    "(5) Humedal con menos especies de flora\n"+
+							"(6) Buscar una escpecie\n"+
+							"(7) Informacion sobre humedales\n"+
+							"(8) Humedal con mayor cantidad de animales\n"+
+		                    "(0) Para salir");
+
+		input = sc.nextInt();
+		sc.nextLine();
+		return input;
+	}
+
+	public void addWetland () {
+
+		System.out.println("Ingrese el nombre del nuevo humedal")
 	}
 	
 }
+
+
