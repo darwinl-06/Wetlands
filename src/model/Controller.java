@@ -1,19 +1,32 @@
 package model;
 
+/** 
+* This is the controller class of the program
+* @author Darwin A. Lenis
+*/
+
 public class Controller{
 
 	private static final int MAX_WETLANDS = 80;
 	
 	private Wetland [] wetlands;
 	
-	//Constructor
 	
+	/** 
+	 * Constructor of the class
+	 */
+
 	public Controller() {
 		
 		wetlands = new Wetland[MAX_WETLANDS];
 		
 	}		
 
+	
+	/** 
+	 * This method check if the array wetlands has space
+	 * @return boolean
+	 */
 	public boolean hasSpace(){
 
 		boolean emptyPosition= false;
@@ -27,6 +40,11 @@ public class Controller{
 		return emptyPosition;
 	}
 
+	
+	/** 
+	 * This method finds the empty space en return the position
+	 * @return int
+	 */
 	public int getEmptyPosition(){
 		
 		int position= -1;
@@ -42,6 +60,19 @@ public class Controller{
 	}
 
 
+	
+	/** 
+	 * This method adds a new wetland in the array of wetlands and returns a message
+	 * @param name 
+	 * @param ubication 
+	 * @param type 
+	 * @param url 
+	 * @param protectedArea	
+	 * @param km2 
+	 * @param maintenance 
+	 * @param zone 
+	 * @return String
+	 */
 	public String addWetland( String name, String ubication, String type, String url, String protectedArea, double km2, int maintenance, String zone ) {
 
 		String registration;
@@ -67,6 +98,12 @@ public class Controller{
 	}
 
 
+	
+	/** 
+	 * Method to search a wetland in the array of wetlands
+	 * @param wetlandName 
+	 * @return int
+	 */
 	public int findWetland(String wetlandName){
 
 		int pos = -1;
@@ -82,6 +119,16 @@ public class Controller{
 		return pos;
 	}
 
+	
+	/** 
+	 * Method to add a Specie to the array of species
+	 * @param name 
+	 * @param cientificName 
+	 * @param migratory 
+	 * @param specieOption
+	 * @param  wetlandName 
+	 * @return String
+	 */
 	public String addSpecie(String name, String cientificName, String migratory, int specieOption, String wetlandName) {
 
 		String registration = "";
@@ -133,6 +180,12 @@ public class Controller{
 		return registration;
 	}
 
+	
+	/** 
+	 * This method assign the type of the event to a variable
+	 * @param specieOption
+	 * @return EventType
+	 */
 	public EventType addEventType(int specieOption) {
 
 		EventType eventType = null;
@@ -156,13 +209,28 @@ public class Controller{
 		return eventType;
 	}
 
-	public String addEvent( int typeOption, String dataEvent, String eventManager, double price, String description, String wetlandName) {
+	
+	/** 
+	 * This method adds a new event to the array of events
+	 * @param typeOption
+	 * @param day
+	 * @param month
+	 * @param year
+	 * @param eventManager
+	 * @param price
+	 * @param description
+	 * @param wetlandName
+	 * @return String
+	 */
+	public String addEvent( int typeOption, int day, int month, int year, String eventManager, double price, String description, String wetlandName) {
 
 		String registration = "";
 
 		EventType type = addEventType(typeOption);
 
 		int position = findWetland(wetlandName);
+
+		Date dateEvent = new Date(day, month, year);
 
 		if(position == -1) { 
 
@@ -172,7 +240,7 @@ public class Controller{
 
 		} else { 
 
-			wetlands[position].regisEvent( type, dataEvent, eventManager, price, description);
+			wetlands[position].regisEvent( type, dateEvent, eventManager, price, description);
         	registration = "Se registro exitosamente el evento";
 
 		}
@@ -193,6 +261,11 @@ public class Controller{
 	
 	}
 
+	
+	/** 
+	 * Method to search for a Specie by the name
+	 * @param name
+	 */
 	public void getSpecie(String name) {
 
 		for(int i=0;i<MAX_WETLANDS;i++) {
@@ -206,6 +279,11 @@ public class Controller{
 
 	}
 
+	/** 
+	 * Method to show all the wetlands
+	 * @param name
+	 */
+
 	public void getWetland() {
 		
 		for(int i=0;i<MAX_WETLANDS;i++) {
@@ -218,6 +296,11 @@ public class Controller{
 	
 	}
 	
+	
+	/** 
+	 * Method to search for the wetland with less flora
+	 * @return String
+	 */
 	public String getFlora() {
 
 		String out = "";
@@ -251,6 +334,11 @@ public class Controller{
 		return out;
 	}
 
+	
+	/** 
+	 * Method to search for the wetland with more animals
+	 * @return String
+	 */
 	public String getFauna() {
 
 		String out = "";

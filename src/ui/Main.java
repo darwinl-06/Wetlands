@@ -3,94 +3,113 @@ package ui;
 import java.util.Scanner;
 import model.Controller;
 
+/**
+ * Main class of the program
+ * @author: Darwin A. Lenis
+ * @version: 10/04/2022
+ */
 
 public class Main {
 
-	
 	private Scanner sc;
 
 	private Controller cont;
 
 	public Main() {
-		sc= new Scanner(System.in);
+		sc = new Scanner(System.in);
 		cont = new Controller();
-		
+
 	}
 
-	public static void main(String [] a) {
-		
+	public static void main(String[] a) {
+
 		Main ppal = new Main();
-		
+
 		ppal.initProgram();
 
 		int option = 0;
-		
+
 		do {
-		    option =ppal.showMenu();
-		    ppal.answerOption(option);
-		}while (option !=0);
+			option = ppal.showMenu();
+			ppal.answerOption(option);
+		} while (option != 0);
 
 	}
 
+	
+	/** 
+	 * method to execute the program according to the user's choice
+	 * @param userOption
+	 */
 	public void answerOption(int userOption) {
-		switch(userOption) {
-		case 0: 
-			System.out.println("Cerrando el programa");
-			break;
-		case 1:
-			addWetland();
-			break;
-		case 2:
-			addSpecie();
-			break;
-		case 3: 
-			addEvent();
-			break;
-		case 4: 
-			showMaintenance();
-			break;
-		case 5: 
-			showFlora();
-			break;
-		case 6:
-			searchSpecie();
-			break;
-		case 7:
-			showWetlands();
-			break;
-		case 8:
-			showFauna();
-			break;
-		
+		switch (userOption) {
+			case 0:
+				System.out.println("Cerrando el programa");
+				break;
+			case 1:
+				addWetland();
+				break;
+			case 2:
+				addSpecie();
+				break;
+			case 3:
+				addEvent();
+				break;
+			case 4:
+				showMaintenance();
+				break;
+			case 5:
+				showFlora();
+				break;
+			case 6:
+				searchSpecie();
+				break;
+			case 7:
+				showWetlands();
+				break;
+			case 8:
+				showFauna();
+				break;
+
 		}
-		
-		
+
 	}
 
+	
+	/** 
+	 * Method to show the menu of the program
+	 * @return int
+	 */
 	public int showMenu() {
 		int input;
-		System.out.println("\n\nMenu de la Tienda, digite una opciOn\n"+ 
-		                    "(1) Registrar un humedal\n" +
-		                    "(2) Registrar una nueva especie en el humedal\n" +
-		                    "(3) Registrar en evento en el humedal\n"+
-		                    "(4) Informacion sobre la cantidad de mantenimientos\n"+
-		                    "(5) Humedal con menos especies de flora\n"+
-							"(6) Buscar una especie\n"+
-							"(7) Informacion sobre humedales\n"+
-							"(8) Humedal con mayor cantidad de animales\n"+
-		                    "(0) Para salir");
+		System.out.println("\n\nMenu de la Tienda, digite una opciOn\n" +
+				"(1) Registrar un humedal\n" +
+				"(2) Registrar una nueva especie en el humedal\n" +
+				"(3) Registrar en evento en el humedal\n" +
+				"(4) Informacion sobre la cantidad de mantenimientos\n" +
+				"(5) Humedal con menos especies de flora\n" +
+				"(6) Buscar una especie\n" +
+				"(7) Informacion sobre humedales\n" +
+				"(8) Humedal con mayor cantidad de animales\n" +
+				"(0) Para salir");
 
 		input = sc.nextInt();
 		sc.nextLine();
 		return input;
 	}
 
+	/** 
+	 * Method to initializade the progrm
+	 * @return int
+	 */
 	public void initProgram() {
 		System.out.println("Manager of wetlands");
-		
+
 	}
 
-
+	/** 
+	 * Method to ask for the information to add a new wetland
+	 */
 	public void addWetland() {
 
 		System.out.println("Ingrese el nombre del nuevo humedal");
@@ -101,13 +120,13 @@ public class Main {
 		sc.nextLine();
 		String ubication = "";
 		String zone = "";
-		if(ubicationOpion == 1) {
+		if (ubicationOpion == 1) {
 
 			ubication = "Urbana";
 
 			System.out.println("Ingrese el nombre del barrio");
 			zone = sc.nextLine();
-		}else {
+		} else {
 			ubication = "rural";
 
 			System.out.println("Ingrese el nombre del corregimientos");
@@ -119,10 +138,10 @@ public class Main {
 		sc.nextLine();
 		String type = "";
 
-		if(typeOption == 1) {
+		if (typeOption == 1) {
 
 			type = "publico";
-		}else {
+		} else {
 			type = "privado";
 		}
 
@@ -133,10 +152,10 @@ public class Main {
 		int protectedAreaOption = sc.nextInt();
 		String protectedArea = "";
 
-		if(protectedAreaOption == 1) {
+		if (protectedAreaOption == 1) {
 
 			protectedArea = "Protegido";
-		}else {
+		} else {
 			protectedArea = "No protegido";
 		}
 
@@ -146,12 +165,13 @@ public class Main {
 
 		System.out.println("Ingresar la cantidad de mantenimientos");
 		int maintance = sc.nextInt();
-		
 
-
-		System.out.println(cont.addWetland(name, ubication, type, url, protectedArea, km2, maintance, zone ));
+		System.out.println(cont.addWetland(name, ubication, type, url, protectedArea, km2, maintance, zone));
 	}
 
+	/** 
+	 * Method to ask for the information to add a new specie to a wetland
+	 */
 	public void addSpecie() {
 
 		System.out.println("Ingrese el nombre de la especie");
@@ -164,14 +184,15 @@ public class Main {
 		int migratoryOption = sc.nextInt();
 		String migratory = "";
 
-		if(migratoryOption == 1) {
+		if (migratoryOption == 1) {
 
 			migratory = "Migratoria";
-		}else {
+		} else {
 			migratory = "No migratoria";
 		}
 
-		System.out.println("Ingrese el tipo de la especie 1.Flora terrestre  2.Flora acuática  3.Ave  4.Mamífero  5.Acuático");
+		System.out.println(
+				"Ingrese el tipo de la especie 1.Flora terrestre  2.Flora acuática  3.Ave  4.Mamífero  5.Acuático");
 		int specieOption = sc.nextInt();
 		sc.nextLine();
 
@@ -181,18 +202,28 @@ public class Main {
 		cont.findWetland(wetlandName);
 		System.out.println(cont.addSpecie(name, cientificName, migratory, specieOption, wetlandName));
 
-
 	}
+
+	/** 
+	 * Method to ask for the information to add a new event 
+	 */
 
 	public void addEvent() {
 
-		System.out.println("Ingrese la fecha en la que se realizara el evento");
-		String dateEvent = sc.nextLine();
+		System.out.println("Ingreseel dia en la que se realizara el evento");
+		int day = sc.nextInt();
+
+		System.out.println("Ingrese el mes en el que se realizara el evento");
+		int month = sc.nextInt();
+
+		System.out.println("Ingrese el año en el que se realizar ael evento");
+		int year = sc.nextInt();
 
 		System.out.println("Ingrese quien realizara este evento");
 		String eventManager = sc.nextLine();
 
-		System.out.println("Ingrese el tipo de evento 1.Mantenimiento 2.v Visita de colegio 3. Actividades de mejoramiento 4. Celebracione");
+		System.out.println(
+				"Ingrese el tipo de evento 1.Mantenimiento 2.v Visita de colegio 3. Actividades de mejoramiento 4. Celebracione");
 		int typeOption = sc.nextInt();
 
 		System.out.println("Ingrese el precio del evento");
@@ -205,14 +236,21 @@ public class Main {
 		System.out.println("Ingrese el humedal en el que va a registrar la nueva especie");
 		String wetlandName = sc.nextLine();
 
-		cont.addEvent(typeOption, dateEvent, eventManager, price, description, wetlandName);
+		cont.addEvent(typeOption, day, month, year, eventManager, price, description, wetlandName);
 	}
+
+	/** 
+	 * Method to show the number of the maintenance of the wetlands
+	 */
 
 	public void showMaintenance() {
 
 		cont.getMaintenance();
 	}
 
+	/** 
+	 * Method to ask for the name of the specie to search
+	 */
 
 	public void searchSpecie() {
 
@@ -220,19 +258,31 @@ public class Main {
 		String name = sc.nextLine();
 
 		cont.getSpecie(name);
-		
+
 	}
+
+	/** 
+	 * Method show the information of the wetlands
+	 */
 
 	public void showWetlands() {
 
 		cont.getWetland();
 	}
 
+	/** 
+	 * Method to show the wetland with less flora
+	 */
+
 	public void showFlora() {
 
 		System.out.println(cont.getFlora());
 	}
-	
+
+	/** 
+	 * Method to show the wetland with more fauna
+	 */
+
 	public void showFauna() {
 
 		System.out.println(cont.getFauna());

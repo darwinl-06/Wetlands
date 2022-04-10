@@ -9,21 +9,28 @@ public class Event{
 	
 	//Relations
 	
-	private String dateEvent;
+	private Date dateEvent;
 	
-	//Constructor
+	/** 
+	 * Constructor of the class
+	 * @param type
+	 * @param dateEvent
+	 * @param eventManager
+	 * @param value
+	 * @param description
+	 */
 	
-	public Event(EventType type, String dateEvent, String eventManager, double value, String description){
+	public Event(EventType type, Date dateEvent, String eventManager, double value, String description){
 		
 		this.eventManager = eventManager;
 		this.value = value;
 		this.description = description;
 		this.dateEvent = dateEvent;
 
+
 	}
 	
-	
-	//Gets
+	//Getters
 	
 	public String getEventManger(){
 		return eventManager;
@@ -41,11 +48,11 @@ public class Event{
 		return description;
 	}
 	
-	public String getDateEvent(){
+	public Date getDateEvent(){
 		return dateEvent;
 	}
 	
-	//Sets
+	//Setters
 	
 	public void setEventManager(String pEventManager){
 		eventManager = pEventManager;
@@ -63,7 +70,7 @@ public class Event{
 		description = pDescription;
 	}
 	
-	public void setDateEvent(String pDateEvent){
+	public void setDateEvent(Date pDateEvent){
 		dateEvent = pDateEvent;
 	}
 

@@ -8,7 +8,14 @@ public class Specie{
 	private String migratory;
 	private String wetland;
 	
-	//Constructor
+	/** 
+	 * Constructor of the class
+	 * @param Name
+	 * @param cientificName
+	 * @param specieType
+	 * @param migratory
+	 * @param wetland
+	 */
 	
 	public Specie(String name, String cientificName, Type specieType, String migratory, String wetland){
 		
@@ -19,7 +26,7 @@ public class Specie{
 		this.wetland = wetland;
 	}
 	
-	//Gets
+	//Getters
 	
 	public String getName(){
 		return name;
@@ -41,9 +48,7 @@ public class Specie{
 		return wetland;
 	}
 
-	//Sets
-	
-	
+	//Setters
 
 	public void setWetland(String wetland) {
 		this.wetland = wetland;

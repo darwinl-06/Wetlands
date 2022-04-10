@@ -6,7 +6,12 @@ public class Date{
 	private int month;
 	private int year;
 	
-	//Constructor
+	/** 
+	 * Constructor of the class
+	 * @param day
+	 * @param month
+	 * @param year
+	 */
 	
 	public Date(int day, int month, int year){
 		
@@ -15,7 +20,7 @@ public class Date{
 		this.year = year;
 	}
 	
-	//Gets
+	//Getters
 	
 	public int getDay(){
 		return day;
@@ -29,7 +34,7 @@ public class Date{
 		return year;
 	}
 	
-	//Sets
+	//Setters
 	
 	public void setDay(int pDay){
 		day = pDay;

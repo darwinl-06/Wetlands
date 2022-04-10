@@ -23,7 +23,17 @@ public class Wetland{
 	private Specie [] species;
 	private Event [] events;
 	
-	//Constructor
+	/** 
+	 * Constructor of the class
+	 * @param name
+	 * @param ubication
+	 * @param zone
+	 * @param type
+	 * @param url
+	 * @param protectedArea
+	 * @param km2
+	 * @param maintenance
+	 */
 	
 	public Wetland(String name, String ubication, String zone, String type, String url, String protectedArea, double km2, int maintance){
 		
@@ -40,6 +50,11 @@ public class Wetland{
 		events = new Event[MAX_EVENTS];
 	}
 	
+	
+	/** 
+	 * Method to chech if the array species has space
+	 * @return boolean
+	 */
 	public boolean hasSpace(){
 
 		boolean emptyPosition= false;
@@ -53,6 +68,11 @@ public class Wetland{
 		return emptyPosition;
 	}
 
+	
+	/** 
+	 * Method to find the empty position of the array species
+	 * @return int
+	 */
 	public int getEmptyPosition(){
 		
 		int position= -1;
@@ -67,6 +87,17 @@ public class Wetland{
 		return position;
 	}
 
+	
+	/** 
+	 * Method to register a new specie
+	 * @param name
+	 * @param cientificName 
+	 * @param migratory
+	 * @param specieType 
+	 * @param wetlandName 
+	 * @param num 
+	 * @return String
+	 */
 	public String regisSpecie( String name, String cientificName, String migratory, Type specieType, String wetlandName, int num) {
 
 		String registration = "";
@@ -109,6 +140,11 @@ public class Wetland{
 
 	}
 
+	
+	/** 
+	 * Method to calculate the number of flora of a wetland
+	 * @return int
+	 */
 	public int calculateNumFlora() {
 
 		int numFlora = numTerrestrial_Flora+numAquatic_Flora;
@@ -116,6 +152,11 @@ public class Wetland{
 		return numFlora;
 	}
 
+	
+	/** 
+	 * Method to calculate the number of fauna of a wetland
+	 * @return int
+	 */
 	public int calculateNumFauna() {
 
 		int numFauna = num_Aquatic+num_Bird+num_Mammal;
@@ -123,6 +164,11 @@ public class Wetland{
 		return numFauna;
 	}
 
+	
+	/** 
+	 * Method to check if the array events has space
+	 * @return boolean
+	 */
 	public boolean eventhasSpace(){
 
 		boolean emptyPosition= false;
@@ -136,6 +182,11 @@ public class Wetland{
 		return emptyPosition;
 	}
 
+	
+	/** 
+	 * Mehtod to find the empty space of the array events
+	 * @return int
+	 */
 	public int getEventEmptyPosition(){
 		
 		int position= -1;
@@ -150,11 +201,22 @@ public class Wetland{
 		return position;
 	}
 
-	public String regisEvent( EventType type, String dataEvent, String eventManager, double price, String description) {
+	
+	/** 
+	 * This method is to register a new event
+	 * @param type
+	 * @param dataEvent
+	 * @param eventManager
+	 * @param price
+	 * @param description
+	 * @return String
+	 */
+	public String regisEvent( EventType type, Date dataEvent, String eventManager, double price, String description) {
 
 		String registration = "";
 
 		int emptyPosition = getEventEmptyPosition();
+
 
 		if(emptyPosition == -1) { 
 
@@ -173,6 +235,12 @@ public class Wetland{
 
 	}
 
+	
+	/** 
+	 * Method to search for the position in the array of a specie by the name 
+	 * @param name
+	 * @return int
+	 */
 	public int findSpecie(String name){
 
 		int pos = -1;
@@ -189,6 +257,12 @@ public class Wetland{
 
 	}
 	
+	
+	/** 
+	 * Method to print the specie found
+	 * @param name
+	 * @return String
+	 */
 	public String searchSpecie(String name) {
 
 		String registration = "";
@@ -211,8 +285,7 @@ public class Wetland{
 
 	}
 
-
-	//Gets
+	//Getters
 	
 	public Specie[] getSpecie() {
 		return species;
@@ -250,7 +323,7 @@ public class Wetland{
 		return km2;
 	}
 	
-	//Sets
+	//Setters
 	
 	public void setName(String pName){
 		name = pName;
